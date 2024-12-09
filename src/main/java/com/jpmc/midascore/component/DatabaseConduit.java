@@ -28,7 +28,7 @@ public class DatabaseConduit {
     }
 
     @Transactional
-    public void processTransaction(long senderId, long recipientId, float amount) {
+    public void validateTransaction(long senderId, long recipientId, float amount) {
 
         if (!userRepository.existsById(senderId) || !userRepository.existsById(recipientId)) {
             LOGGER.info("A user specified does not exist... discarding transaction");

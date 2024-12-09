@@ -59,7 +59,3 @@ public class TransactionRecord {
         return "Transaction {senderId=" + senderId + ", recipientId=" + recipientId + ", amount=" + amount + "}";
     }
 }
-
-class MetaData {
-
-}
