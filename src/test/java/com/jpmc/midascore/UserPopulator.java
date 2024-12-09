@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserPopulator {
+public class  UserPopulator {
     @Autowired
     private FileLoader fileLoader;
 
@@ -18,7 +18,7 @@ public class UserPopulator {
         for (String userLine : userLines) {
             String[] userData = userLine.split(", ");
             UserRecord user = new UserRecord(userData[0], Float.parseFloat(userData[1]));
-            databaseConduit.save(user);
+            databaseConduit.saveUser(user);
         }
     }
 }

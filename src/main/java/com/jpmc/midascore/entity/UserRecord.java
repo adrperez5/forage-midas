@@ -3,6 +3,7 @@ package com.jpmc.midascore.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class UserRecord {
 
     @Id
@@ -12,7 +13,7 @@ public class UserRecord {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "balance")
     private float balance;
 
     protected UserRecord() {
