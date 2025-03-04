@@ -1,6 +1,7 @@
 package com.jpmc.midascore.component;
 
 import com.jpmc.midascore.entity.TransactionRecord;
+import com.jpmc.midascore.foundation.Transaction;
 import com.jpmc.midascore.repository.TransactionRepository;
 import com.jpmc.midascore.entity.UserRecord;
 import com.jpmc.midascore.repository.UserRepository;
@@ -28,14 +29,18 @@ public class DatabaseConduit {
     }
 
     @Transactional
-    public void validateTransaction(long senderId, long recipientId, float amount) {
+    public void validateTransaction(Transaction transaction) {
+        long senderId = transaction.getSenderId();
+        long recipientId = transaction.getRecipientId();
 
-        if (!userRepository.existsById(senderId) || !userRepository.existsById(recipientId)) {
+        if (!userRepository.existsById(senderId) ||
+                !userRepository.existsById(recipientId)) {
             LOGGER.info("A user specified does not exist... discarding transaction");
             return;
         }
 
         float balance = userRepository.findBalanceById(senderId);
+        float amount = transaction.getAmount();
 
         if (balance >= amount) {
             LOGGER.info("Processing transaction...");

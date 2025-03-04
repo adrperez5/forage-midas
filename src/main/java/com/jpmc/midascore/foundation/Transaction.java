@@ -20,7 +20,6 @@ public class Transaction {
     public long getSenderId() {
         return senderId;
     }
-
     public void setSenderId(long senderId) {
         this.senderId = senderId;
     }
@@ -28,7 +27,6 @@ public class Transaction {
     public long getRecipientId() {
         return recipientId;
     }
-
     public void setRecipientId(long recipientId) {
         this.recipientId = recipientId;
     }
@@ -36,7 +34,6 @@ public class Transaction {
     public float getAmount() {
         return amount;
     }
-
     public void setAmount(float amount) {
         this.amount = amount;
     }

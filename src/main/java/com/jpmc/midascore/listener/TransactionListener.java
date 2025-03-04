@@ -2,7 +2,6 @@ package com.jpmc.midascore.listener;
 
 import com.jpmc.midascore.component.DatabaseConduit;
 import com.jpmc.midascore.foundation.Transaction;
-import com.jpmc.midascore.restapi.IncentiveService;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
