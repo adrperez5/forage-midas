@@ -23,7 +23,7 @@ class TransactionListener {
     @KafkaListener(topics = "${general.kafka-topic}", groupId = "transaction-group")
     public void listen(Transaction transaction) throws IOException {
         LOGGER.info("Received: " + transaction);
-        db.validateTransaction(transaction.getSenderId(), transaction.getRecipientId(), transaction.getAmount());
+        db.validateTransaction(transaction);
 
     }
 }
